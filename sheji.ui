@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>him表情包加密神器</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="him.qrc">
+    <normaloff>:/him/him.ico</normaloff>:/him/him.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">image: url(:/him/him.png);</string>
   </property>
@@ -115,6 +119,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="him.qrc"/>
+ </resources>
  <connections/>
 </ui>
