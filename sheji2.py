@@ -2,9 +2,6 @@ import base64
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
-line_1 = 'None'
-line_2 = 'None'
-
 class key_locks:
     @staticmethod
     def text_to_binary(text):
