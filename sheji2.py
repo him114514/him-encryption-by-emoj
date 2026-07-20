@@ -19,55 +19,111 @@ class key_locks:
 class Ui_Form:
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.setFixedSize(287, 462)
-        Form.resize(287, 462)
-        Form.setMinimumSize(QtCore.QSize(287, 315))
+     
+        Form.resize(320, 480)
+        Form.setMinimumSize(QtCore.QSize(320, 380))
+    
+        Form.setStyleSheet("""
+QWidget#Form{
+    image: url(:/him/him.png);
+}
+QLabel{
+    color: #ffffff;
+    background-color: rgba(0,0,0,70);
+    border-radius: 8px;
+    padding:4px;
+}
+QLineEdit{
+    background-color: rgba(255,255,255,180);
+    border:1px solid #666666;
+    border-radius:6px;
+    padding:4px 8px;
+    font-size:11pt;
+}
+QLineEdit:focus{
+    border:1px solid #4488ff;
+}
+QTextEdit{
+    background-color: rgba(255,255,255,180);
+    border:1px solid #666666;
+    border-radius:6px;
+    padding:6px;
+    font-size:11pt;
+}
+QTextEdit:focus{
+    border:1px solid #4488ff;
+}
+QPushButton{
+    background-color: rgba(40,80,160,200);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:4px;
+    font-weight:bold;
+}
+QPushButton:hover{
+    background-color: rgba(60,110,210,220);
+}
+QPushButton:pressed{
+    background-color: rgba(20,50,120,200);
+}
+        """)
+
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/him/him.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
 
+        # 加密标题label
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(10, 0, 271, 41))
+        self.label.setGeometry(QtCore.QRect(15, 10, 290, 45))
         self.label.setObjectName("label")
         
+        # 加密输入框
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(15, 60, 210, 28))
+        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setPlaceholderText("这是需要加密的文字")
+        
+        # 加密按钮
         self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(190, 70, 75, 23))
+        self.pushButton.setGeometry(QtCore.QRect(235, 60, 70, 28))
         self.pushButton.setObjectName("pushButton")
         
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 40, 251, 20))
-        self.lineEdit.setObjectName("lineEdit")
-        
+        # 加密输出框
+        self.textEdit = QtWidgets.QTextEdit(Form)
+        self.textEdit.setGeometry(QtCore.QRect(15, 100, 290, 130))
+        self.textEdit.setObjectName("textEdit")
+        self.textEdit.setPlaceholderText("加密后的表情文本")
+
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(10, 220, 271, 41))
+        self.label_2.setGeometry(QtCore.QRect(15, 240, 290, 45))
         self.label_2.setObjectName("label_2")
-        
+
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(20, 260, 251, 20))
+        self.lineEdit_2.setGeometry(QtCore.QRect(15, 290, 210, 28))
         self.lineEdit_2.setObjectName("lineEdit_2")
-        
+        self.lineEdit_2.setPlaceholderText("粘贴加密表情字符串")
+
         self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(190, 290, 75, 23))
+        self.pushButton_2.setGeometry(QtCore.QRect(235, 290, 70, 28))
         self.pushButton_2.setObjectName("pushButton_2")
         
-        self.textEdit = QtWidgets.QTextEdit(Form)
-        self.textEdit.setGeometry(QtCore.QRect(20, 110, 241, 121))
-        self.textEdit.setObjectName("textEdit")
         
         self.textEdit_2 = QtWidgets.QTextEdit(Form)
-        self.textEdit_2.setGeometry(QtCore.QRect(20, 330, 241, 121))
+        self.textEdit_2.setGeometry(QtCore.QRect(15, 330, 290, 130))
         self.textEdit_2.setObjectName("textEdit_2")
+        self.textEdit_2.setPlaceholderText("解密还原后的原始文字")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "him表情包加密神器"))
-        self.label.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; vertical-align:sub;\">请输入要加密成表情的文字</span></p></body></html>"))
-        self.pushButton.setText(_translate("Form", "转换"))
-        self.label_2.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; vertical-align:sub;\">请输入要解密的表情</span></p></body></html>"))
-        self.pushButton_2.setText(_translate("Form", "转换"))
+        Form.setWindowTitle(_translate("Form", "Him表情包加密神器"))
+        self.label.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:bold;\">文字 → Him表情加密</span></p></body></html>"))
+        self.pushButton.setText(_translate("Form", "加密转换"))
+        self.label_2.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:bold;\">Him表情 → 文字解密</span></p></body></html>"))
+        self.pushButton_2.setText(_translate("Form", "解密转换"))
 
         self.pushButton.clicked.connect(self.encryption)
         self.pushButton_2.clicked.connect(self.decryption)
