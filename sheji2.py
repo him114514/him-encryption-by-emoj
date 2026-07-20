@@ -1,5 +1,5 @@
 import base64
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 import sys
 
 class key_locks:
@@ -70,7 +70,7 @@ QPushButton:pressed{
         """)
 
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/him/him.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/him/him.ico"))
         Form.setWindowIcon(icon)
 
         # 加密标题label
@@ -145,5 +145,5 @@ if __name__ == '__main__':
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
